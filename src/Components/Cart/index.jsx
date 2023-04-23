@@ -1,13 +1,15 @@
 import './Style/_base.css'
 import './Style/_reset.css'
 import './Style/_vars.css'
+import './Style/_section_cart.css'
+import Title from './Title'
 
 const Cart = () => {
     return (
         <section className="section-cart">
         <header className="section-cart__header">
             <div className="container">
-                <h1 className="title-1">Корзина товаров</h1>
+                <Title/>
             </div>
         </header>
         <div className="section-cart__body">
