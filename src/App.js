@@ -112,6 +112,7 @@ function App() {
             <LoginButton variant="contained" onClick={handleClickOpen}>
               Log In
             </LoginButton>
+            <SignButton variant="contained">Sign Up</SignButton>
             <Dialog
               open={open}
               onClose={handleClose}
@@ -128,6 +129,14 @@ function App() {
                   type="email"
                   fullWidth
                 />
+                <TextField
+                  autoFocus
+                  margin="dense"
+                  id="pass"
+                  label="Password"
+                  type="password"
+                  fullWidth
+                />
               </DialogContent>
               <DialogActions>
                 <Button onClick={handleClose} color="primary">
@@ -138,7 +147,6 @@ function App() {
                 </Button>
               </DialogActions>
             </Dialog>
-            <SignButton variant="contained">Sign Up</SignButton>
           </Box>
         </Toolbar>
       </AppBar>
