@@ -1,11 +1,8 @@
 import React from "react";
 import "./App.css";
 import {
-  AppBar,
   Container,
-  Toolbar,
   Typography,
-  Box,
   Button,
   Paper,
   Grid,
@@ -15,285 +12,163 @@ import {
   CardActions,
   BottomNavigation,
   BottomNavigationAction,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  TextField,
-  DialogActions,
 } from "@mui/material";
 import SvgIcon from "@mui/material/SvgIcon";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
+import Header from "./Components/Header";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-const LoginButton = styled(Button)({
-  backgroundColor: "#377111",
-  borderRadius: "30px",
-  transition: "background-color 1s ease",
-  "@keyframes move": {
-    "0%": {
-      transform: "translateY(0px)",
-    },
-    "50%": {
-      transform: "translateY(-10px)",
-    },
-    "100%": {
-      transform: "translateY(0px)",
-    },
-  },
-  "&:hover": {
-    backgroundColor: "#1992BA",
-    animation: "move 0.5s linear",
-  },
-});
-const SignButton = styled(Button)({
-  backgroundColor: "#961111",
-  borderRadius: "30px",
-  transition: "width 2s ease-in-out",
-  "&:hover": {
-    width: "100px",
-  },
-});
 
 function App() {
   const [value, setValue] = useState("recents");
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const [open, setOpen] = useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
   return (
     <>
-      <AppBar
-        color="secondary"
+      <Header />
+      <Paper
         sx={{
-          height: "90px",
-          display: "flex",
-          alignItems: "center",
+          backgroundImage: `url(https://www.bestbinar.ru/wp-content/uploads/2018/12/2-5.jpg)`,
+          position: "relative",
+          color: "white",
+          marginBottom: "30px",
+          backgroundSize: "cover",
+          backgroundRepeate: "no-repeat",
+          backgroundPosition: "center",
         }}
       >
-        <Toolbar
-          sx={{
-            display: "flex",
-            height: "100%",
-            width: "100%",
-            boxSizing: "border-box",
-            justifyContent: "space-between",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              width: "220px",
+        <Container maxWidth="md" fixed>
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              // backgroundOverlay: "rgba(0,0,0,0.3)"
             }}
-          >
-            <SvgIcon>
-              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-            </SvgIcon>
-
-            <Typography variant="h6">Web Developer Blog</Typography>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "190px",
-            }}
-          >
-            <LoginButton variant="contained" onClick={handleClickOpen}>
-              Log In
-            </LoginButton>
-            <SignButton variant="contained">Sign Up</SignButton>
-            <Dialog
-              open={open}
-              onClose={handleClose}
-              aria-label="form-dialog-title"
-            >
-              <DialogTitle id="form-dialog-title">Log In</DialogTitle>
-              <DialogContent>
-                <DialogContentText>Log in to see videos</DialogContentText>
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="name"
-                  label="Email Adress"
-                  type="email"
-                  fullWidth
-                />
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="pass"
-                  label="Password"
-                  type="password"
-                  fullWidth
-                />
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleClose} color="primary">
-                  Cancel
-                </Button>
-                <Button onClick={handleClose} color="primary">
-                  Log in
-                </Button>
-              </DialogActions>
-            </Dialog>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <main>
-        <Paper
-          sx={{
-            backgroundImage: `url(https://www.bestbinar.ru/wp-content/uploads/2018/12/2-5.jpg)`,
-            position: "relative",
-            color: "white",
-            marginBottom: "32px",
-            marginTop: "20px",
-            backgroundSize: "cover",
-            backgroundRepeate: "no-repeat",
-            backgroundPosition: "center",
-          }}
-        >
-          <Container maxWidth="md" fixed>
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                bottom: 0,
-                left: 0,
-                right: 0,
-                // backgroundOverlay: "rgba(0,0,0,0.3)"
-              }}
-            />
-            <Grid container>
-              <Grid item md={9}>
-                <div
-                  style={{
-                    position: "relative",
-                    padding: "48px",
-                  }}
-                >
-                  <Typography
-                    component="h1"
-                    variant="h3"
-                    color="inherit"
-                    gutterBottom
-                  >
-                    Main Typography
-                  </Typography>
-                  <Typography variant="h5" color="inherit" paragraph>
-                    Paragraph The aroma of freshly brewed coffee filled the cozy
-                    cafe as patrons chatted and sipped their drinks.
-                  </Typography>
-                  <Button
-                    color="secondary"
-                    variant="contained"
-                    sx={{
-                      bgcolor: "red",
-                      borderRadius: "30px",
-                    }}
-                  >
-                    Learn more
-                  </Button>
-                </div>
-              </Grid>
-            </Grid>
-          </Container>
-        </Paper>
-        <div>
-          <Container maxWidth="sm">
-            <Typography
-              variant="h2"
-              align="center"
-              color="textPrimary"
-              gutterBottom
-            >
-              Blog
-            </Typography>
-            <Typography
-              variant="h5"
-              align="center"
-              color="textSecondary"
-              paragraph
-            >
-              Paragraph The aroma of freshly brewed coffee filled the cozy cafe
-              as patrons chatted and sipped their drinks. Paragraph The aroma of
-              freshly brewed coffee filled the cozy cafe as patrons chatted and
-              sipped their drinks.
-            </Typography>
-            <div>
-              <Grid container spacing={2} justifyContent="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Start now
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Learn more
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
-            <Container maxWidth="md">
-              <Grid
-                container
-                spacing={4}
-                sx={{
-                  marginTop: "32px",
+          />
+          <Grid container>
+            <Grid item md={9}>
+              <div
+                style={{
+                  position: "relative",
+                  padding: "48px",
                 }}
               >
-                {cards.map((card) => (
-                  <Grid item key={card} xs={12} sm={4} md={6}>
-                    <Card
+                <Typography
+                  component="h1"
+                  variant="h3"
+                  color="inherit"
+                  gutterBottom
+                >
+                  Main Typography
+                </Typography>
+                <Typography variant="h5" color="inherit" paragraph>
+                  Paragraph The aroma of freshly brewed coffee filled the cozy
+                  cafe as patrons chatted and sipped their drinks.
+                </Typography>
+                <Button
+                  color="secondary"
+                  variant="contained"
+                  sx={{
+                    bgcolor: "red",
+                    borderRadius: "30px",
+                  }}
+                >
+                  Learn more
+                </Button>
+              </div>
+            </Grid>
+          </Grid>
+        </Container>
+      </Paper>
+      <div>
+        <Container maxWidth="sm">
+          <Typography
+            variant="h2"
+            align="center"
+            color="textPrimary"
+            gutterBottom
+          >
+            Blog
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="textSecondary"
+            paragraph
+          >
+            Paragraph The aroma of freshly brewed coffee filled the cozy cafe as
+            patrons chatted and sipped their drinks. Paragraph The aroma of
+            freshly brewed coffee filled the cozy cafe as patrons chatted and
+            sipped their drinks.
+          </Typography>
+          <div>
+            <Grid container spacing={2} justifyContent="center">
+              <Grid item>
+                <Button variant="contained" color="primary">
+                  Start now
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button variant="outlined" color="primary">
+                  Learn more
+                </Button>
+              </Grid>
+            </Grid>
+          </div>
+          <Container maxWidth="md">
+            <Grid
+              container
+              spacing={4}
+              sx={{
+                marginTop: "32px",
+              }}
+            >
+              {cards.map((card) => (
+                <Grid item key={card} xs={12} sm={4} md={6}>
+                  <Card
+                    sx={{
+                      boxShadow: "1px 4px 4px -2px rgba(0,0,0,0.5)",
+                    }}
+                  >
+                    <CardMedia
                       sx={{
-                        boxShadow: "1px 4px 4px -2px rgba(0,0,0,0.5)",
+                        paddingTop: "56.25%",
+                      }}
+                      image="https://avatars.mds.yandex.net/i?id=4fd5428960144c80fb971bf6aee7bb29-5253174-images-thumbs&ref=rim&n=33&w=281&h=188"
+                    />
+                    <CardContent
+                      sx={{
+                        flexGrow: 1,
                       }}
                     >
-                      <CardMedia
-                        sx={{
-                          paddingTop: "56.25%",
-                        }}
-                        image="https://avatars.mds.yandex.net/i?id=4fd5428960144c80fb971bf6aee7bb29-5253174-images-thumbs&ref=rim&n=33&w=281&h=188"
-                      />
-                      <CardContent
-                        sx={{
-                          flexGrow: 1,
-                        }}
-                      >
-                        <Typography variant="h5" gutterBottom>
-                          Blog Post
-                        </Typography>
-                        <Typography>
-                          The aroma of freshly brewed coffee filled the cozy
-                          cafe as patrons
-                        </Typography>
-                      </CardContent>
-                      <CardActions>
-                        <Button size="small" color="primary" variant="outlined">
-                          View
-                        </Button>
-                        <Button size="small" color="warning">
-                          Edit
-                        </Button>
-                      </CardActions>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
-            </Container>
+                      <Typography variant="h5" gutterBottom>
+                        Blog Post
+                      </Typography>
+                      <Typography>
+                        The aroma of freshly brewed coffee filled the cozy cafe
+                        as patrons
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small" color="primary" variant="outlined">
+                        View
+                      </Button>
+                      <Button size="small" color="warning">
+                        Edit
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
           </Container>
-        </div>
-      </main>
+        </Container>
+      </div>
       <footer>
         <Typography variant="h6" align="center" gutterBottom>
           Footer
