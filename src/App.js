@@ -15,6 +15,12 @@ import {
   CardActions,
   BottomNavigation,
   BottomNavigationAction,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  TextField,
+  DialogActions,
 } from "@mui/material";
 import SvgIcon from "@mui/material/SvgIcon";
 import { styled } from "@mui/material/styles";
@@ -56,6 +62,13 @@ function App() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
       <AppBar
@@ -96,7 +109,35 @@ function App() {
               width: "190px",
             }}
           >
-            <LoginButton variant="contained">Log In</LoginButton>
+            <LoginButton variant="contained" onClick={handleClickOpen}>
+              Log In
+            </LoginButton>
+            <Dialog
+              open={open}
+              onClose={handleClose}
+              aria-label="form-dialog-title"
+            >
+              <DialogTitle id="form-dialog-title">Log In</DialogTitle>
+              <DialogContent>
+                <DialogContentText>Log in to see videos</DialogContentText>
+                <TextField
+                  autoFocus
+                  margin="dense"
+                  id="name"
+                  label="Email Adress"
+                  type="email"
+                  fullWidth
+                />
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleClose} color="primary">
+                  Cancel
+                </Button>
+                <Button onClick={handleClose} color="primary">
+                  Log in
+                </Button>
+              </DialogActions>
+            </Dialog>
             <SignButton variant="contained">Sign Up</SignButton>
           </Box>
         </Toolbar>
