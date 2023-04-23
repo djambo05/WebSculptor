@@ -13,6 +13,7 @@ import {
 import Header from "./Components/Header";
 import MainPaper from "./Components/MainPaper";
 import MainFooter from "./Components/MainFooter";
+import Cart from "./Components/Cart";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
       <Header />
-      <MainPaper/>
+      <Cart/>
       <div>
         <Container maxWidth="sm">
           <Container maxWidth="md">
