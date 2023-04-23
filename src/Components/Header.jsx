@@ -45,7 +45,7 @@ const SignButton = styled(Button)({
   },
 });
 
-function Header() {
+const Header = () => {
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -78,6 +78,7 @@ function Header() {
               justifyContent: "space-between",
               alignItems: "center",
               width: "220px",
+              height: "100%",
             }}
           >
             <SvgIcon>
@@ -92,6 +93,7 @@ function Header() {
               justifyContent: "space-between",
               alignItems: "center",
               width: "190px",
+              height: "100%",
             }}
           >
             <LoginButton variant="contained" onClick={handleClickOpen}>
