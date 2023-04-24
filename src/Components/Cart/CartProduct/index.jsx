@@ -1,6 +1,6 @@
 import CartCount from "../CartCount";
 import "./style.css";
-const CartProduct = ({ product, deleteProduct }) => {
+const CartProduct = ({ product, deleteProduct, increase, decrease }) => {
   return (
     <section className="product">
       <div className="product__img">
@@ -8,9 +8,14 @@ const CartProduct = ({ product, deleteProduct }) => {
       </div>
       <div className="product__title">{product.title}</div>
       <div className="product__count">
-        <CartCount />
+        <CartCount
+          count={product.count}
+          increase={increase}
+          id={product.id}
+          decrease={decrease}
+        />
       </div>
-      <div className="product__price">{product.price} руб.</div>
+      <div className="product__price">{product.priceTotal} руб.</div>
       <div className="product__controls">
         <button
           type="button"

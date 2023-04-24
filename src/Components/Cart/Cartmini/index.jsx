@@ -3,7 +3,7 @@ import CartFooter from "../CartFooter";
 import CartHeader from "../CartHeader";
 import CartProduct from "../CartProduct";
 
-const cart = [
+const data = [
   {
     id: 1,
     img: "macbook.jpg",
@@ -31,20 +31,56 @@ const cart = [
 ];
 
 const Cartmini = () => {
-  const [data, setData] = useState(cart);
+  const [cart, setCart] = useState(data);
+
   const deleteProduct = (id) => {
-    console.log(id);
-    setData();
+    setCart((cart) => cart.filter((product) => id !== product.id));
   };
+
+  const increase = (id) => {
+    setCart((cart) => {
+      return cart.map((product) => {
+        if (id === product.id) {
+          const newCount = product.count++;
+          return {
+            ...product,
+            count: newCount,
+            priceTotal: newCount * product.price,
+          };
+        }
+        return product;
+      });
+    });
+  };
+
+  const decrease = (id) => {
+    setCart((cart) => {
+      return cart.map((product) => {
+        if (id === product.id) {
+          const newCount = product.count - 1 > 1 ? product.count - 1 : 1;
+          return {
+            ...product,
+            count: newCount,
+            priceTotal: newCount * product.price,
+          };
+        }
+        return product;
+      });
+    });
+  };
+
   const products = cart.map((product) => {
     return (
       <CartProduct
         product={product}
         key={product.id}
         deleteProduct={deleteProduct}
+        increase={increase}
+        decrease={decrease}
       />
     );
   });
+
   return (
     <section className="cart">
       <CartHeader />
