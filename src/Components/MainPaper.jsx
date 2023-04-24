@@ -1,14 +1,15 @@
-import { Paper, Container, Grid, Typography, Button } from "@mui/material"
+import { Paper, Container, Grid, Typography, Button } from "@mui/material";
 const MainPaper = () => {
-    return (
+  return (
     <>
-    <Paper
+      <Paper
         sx={{
           backgroundImage: `url(https://www.bestbinar.ru/wp-content/uploads/2018/12/2-5.jpg)`,
           position: "relative",
           color: "white",
           marginBottom: "30px",
           backgroundSize: "cover",
+          borderRadius: "0px",
           backgroundRepeate: "no-repeat",
           backgroundPosition: "center",
         }}
@@ -59,7 +60,7 @@ const MainPaper = () => {
           </Grid>
         </Container>
       </Paper>
-      </>
-    )
-}
-export default MainPaper
+    </>
+  );
+};
+export default MainPaper;
