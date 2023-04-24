@@ -1,5 +1,6 @@
 import CartCount from "../CartCount";
 import "./style.css";
+import priceFormatter from "../../../Utils/priceFromatter";
 const CartProduct = ({
   product,
   deleteProduct,
@@ -22,7 +23,9 @@ const CartProduct = ({
           changeValue={changeValue}
         />
       </div>
-      <div className="product__price">{product.priceTotal} руб.</div>
+      <div className="product__price">
+        {priceFormatter.format(product.priceTotal)} руб.
+      </div>
       <div className="product__controls">
         <button
           type="button"

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartFooter from "../CartFooter";
 import CartHeader from "../CartHeader";
 import CartProduct from "../CartProduct";
@@ -32,7 +32,25 @@ const data = [
 
 const Cartmini = () => {
   const [cart, setCart] = useState(data);
+  const [total, setTotal] = useState({
+    price: cart.reduce((prev, curr) => {
+      return prev + curr.priceTotal;
+    }, 0),
+    count: cart.reduce((prev, curr) => {
+      return prev + curr.count;
+    }, 0),
+  });
 
+  useEffect(() => {
+    setTotal({
+      price: cart.reduce((prev, curr) => {
+        return prev + curr.priceTotal;
+      }, 0),
+      count: cart.reduce((prev, curr) => {
+        return prev + curr.count;
+      }, 0),
+    });
+  }, [cart]);
   const deleteProduct = (id) => {
     setCart((cart) => cart.filter((product) => id !== product.id));
   };
@@ -101,7 +119,7 @@ const Cartmini = () => {
     <section className="cart">
       <CartHeader />
       {products}
-      <CartFooter />
+      <CartFooter total={total} />
     </section>
   );
 };
