@@ -6,7 +6,7 @@ import CartProduct from "../CartProduct";
 const cart = [
   {
     id: 1,
-    img: "macllbook.jpg",
+    img: "macbook.jpg",
     title: "Apple Mackbook Air 13",
     count: 1,
     price: 110000,

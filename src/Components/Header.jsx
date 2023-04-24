@@ -17,8 +17,8 @@ import { styled } from "@mui/material/styles";
 import { useState } from "react";
 
 const LoginButton = styled(Button)({
-  backgroundColor: "#377111",
-  borderRadius: "30px",
+  backgroundColor: "#333333",
+  borderRadius: "10px",
   transition: "background-color 1s ease",
   "@keyframes move": {
     "0%": {
@@ -37,11 +37,12 @@ const LoginButton = styled(Button)({
   },
 });
 const SignButton = styled(Button)({
-  backgroundColor: "#961111",
-  borderRadius: "30px",
-  transition: "width 2s ease-in-out",
+  backgroundColor: "#333333",
+  borderRadius: "10px",
+  transition: "2s",
   "&:hover": {
-    width: "100px",
+    transform: "scale(1.1)",
+    backgroundColor: "#1992BA",
   },
 });
 
@@ -56,12 +57,11 @@ const Header = () => {
   return (
     <>
       <AppBar
-        color="secondary"
         sx={{
+          backgroundColor: "#FF851B",
           height: "90px",
           display: "flex",
           alignItems: "center",
-          position: "sticky",
         }}
       >
         <Toolbar
@@ -77,23 +77,36 @@ const Header = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              width: "220px",
+              width: "230px",
               height: "100%",
             }}
           >
-            <SvgIcon>
+            <SvgIcon
+              sx={{
+                color: "#333333",
+              }}
+            >
               <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
             </SvgIcon>
 
-            <Typography variant="h6">Web Developer Blog</Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                color: "#333333",
+                fontWeight: "bold",
+              }}
+            >
+              Web Developer Blog
+            </Typography>
           </Box>
           <Box
             sx={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              width: "190px",
+              width: "200px",
               height: "100%",
+              padding: "10px",
             }}
           >
             <LoginButton variant="contained" onClick={handleClickOpen}>
@@ -139,6 +152,6 @@ const Header = () => {
       </AppBar>
     </>
   );
-}
+};
 
 export default Header;
