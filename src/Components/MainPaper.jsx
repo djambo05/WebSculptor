@@ -7,9 +7,9 @@ const MainPaper = () => {
           backgroundImage: `url(https://www.bestbinar.ru/wp-content/uploads/2018/12/2-5.jpg)`,
           position: "relative",
           color: "white",
-          marginBottom: "30px",
           backgroundSize: "cover",
           borderRadius: "0px",
+          marginTop: "90px",
           backgroundRepeate: "no-repeat",
           backgroundPosition: "center",
         }}
@@ -22,7 +22,7 @@ const MainPaper = () => {
               bottom: 0,
               left: 0,
               right: 0,
-              // backgroundOverlay: "rgba(0,0,0,0.3)"
+              backgroundOverlay: "rgba(0,0,0,1)",
             }}
           />
           <Grid container>
