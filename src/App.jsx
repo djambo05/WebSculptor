@@ -21,7 +21,8 @@ function App() {
   return (
     <>
       <Header />
-      <Cart/>
+      <MainPaper />
+      <Cart />
       <div>
         <Container maxWidth="sm">
           <Container maxWidth="md">
@@ -73,7 +74,7 @@ function App() {
           </Container>
         </Container>
       </div>
-      <MainFooter/>
+      <MainFooter />
     </>
   );
 }
