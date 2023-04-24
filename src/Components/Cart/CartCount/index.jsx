@@ -1,5 +1,5 @@
 import "./style.css";
-const CartCount = ({ count, increase, id, decrease }) => {
+const CartCount = ({ count, increase, id, decrease, changeValue }) => {
   return (
     <div className="count">
       <div className="count__box">
@@ -9,6 +9,9 @@ const CartCount = ({ count, increase, id, decrease }) => {
           min="1"
           max="100"
           value={count}
+          onChange={(e) => {
+            changeValue(id, +e.target.value);
+          }}
         />
       </div>
       <div className="count__controls">
