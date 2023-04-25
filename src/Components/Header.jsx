@@ -11,8 +11,8 @@ import {
   DialogContentText,
   TextField,
   DialogActions,
+  Icon,
 } from "@mui/material";
-import SvgIcon from "@mui/material/SvgIcon";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
 
@@ -58,7 +58,7 @@ const Header = () => {
     <>
       <AppBar
         sx={{
-          backgroundColor: "#FF851B",
+          backgroundColor: "#EAEFF2",
           height: "90px",
           display: "flex",
           alignItems: "center",
@@ -74,29 +74,32 @@ const Header = () => {
         >
           <Box
             sx={{
-              display: "flex",
-              justifyContent: "space-between",
+              display: "grid",
+              gridTemplateColumns: "1fr 3fr",
+              justifyItems: "center",
               alignItems: "center",
-              width: "230px",
+              width: "240px",
               height: "100%",
             }}
           >
-            <SvgIcon
+            <Icon
               sx={{
                 color: "#333333",
               }}
             >
-              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-            </SvgIcon>
+              <img src="img/icons/apple.png" alt="icon" />
+            </Icon>
 
             <Typography
-              variant="h6"
+              variant="h5"
               sx={{
                 color: "#333333",
-                fontWeight: "bold",
+                fontWeight: "cursive",
+                fontFamily: "Castoro Titling",
+                marginTop: "7px",
               }}
             >
-              Web Developer Blog
+              Apple Avenue
             </Typography>
           </Box>
           <Box
