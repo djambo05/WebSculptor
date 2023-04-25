@@ -14,20 +14,9 @@ import {
   Icon,
   IconButton,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { useState } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Shop } from "@mui/icons-material";
-
-const LoginButton = styled(Button)({
-  backgroundColor: "#333333",
-  borderRadius: "10px",
-  transition: "2s",
-  "&:hover": {
-    transform: "scale(1.1)",
-    backgroundColor: "#1992BA",
-  },
-});
+import Cart from "./Cart";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -107,34 +96,7 @@ const Header = () => {
               onClose={handleClose}
               aria-label="form-dialog-title"
             >
-              <DialogTitle id="form-dialog-title">Log In</DialogTitle>
-              <DialogContent>
-                <DialogContentText>Log in to see videos</DialogContentText>
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="name"
-                  label="Email Adress"
-                  type="email"
-                  fullWidth
-                />
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="pass"
-                  label="Password"
-                  type="password"
-                  fullWidth
-                />
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleClose} color="primary">
-                  Cancel
-                </Button>
-                <Button onClick={handleClose} color="primary">
-                  Log in
-                </Button>
-              </DialogActions>
+              <Cart />
             </Dialog>
           </Box>
         </Toolbar>
