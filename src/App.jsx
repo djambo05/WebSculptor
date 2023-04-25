@@ -22,7 +22,6 @@ function App() {
     <>
       <Header />
       <MainPaper />
-      <Cart />
       <div>
         <Container maxWidth="sm">
           <Container maxWidth="md">
