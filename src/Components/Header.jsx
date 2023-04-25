@@ -19,21 +19,10 @@ import { useState } from "react";
 const LoginButton = styled(Button)({
   backgroundColor: "#333333",
   borderRadius: "10px",
-  transition: "background-color 1s ease",
-  "@keyframes move": {
-    "0%": {
-      transform: "translateY(0px)",
-    },
-    "50%": {
-      transform: "translateY(-10px)",
-    },
-    "100%": {
-      transform: "translateY(0px)",
-    },
-  },
+  transition: "2s",
   "&:hover": {
+    transform: "scale(1.1)",
     backgroundColor: "#1992BA",
-    animation: "move 0.5s linear",
   },
 });
 const SignButton = styled(Button)({
@@ -82,11 +71,7 @@ const Header = () => {
               height: "100%",
             }}
           >
-            <Icon
-              sx={{
-                color: "#333333",
-              }}
-            >
+            <Icon>
               <img src="img/icons/apple.png" alt="icon" />
             </Icon>
 
