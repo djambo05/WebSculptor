@@ -12,20 +12,14 @@ import {
   TextField,
   DialogActions,
   Icon,
+  IconButton,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Shop } from "@mui/icons-material";
 
 const LoginButton = styled(Button)({
-  backgroundColor: "#333333",
-  borderRadius: "10px",
-  transition: "2s",
-  "&:hover": {
-    transform: "scale(1.1)",
-    backgroundColor: "#1992BA",
-  },
-});
-const SignButton = styled(Button)({
   backgroundColor: "#333333",
   borderRadius: "10px",
   transition: "2s",
@@ -71,7 +65,7 @@ const Header = () => {
               height: "100%",
             }}
           >
-            <Icon>
+            <Icon color="white">
               <img src="img/icons/apple.png" alt="icon" />
             </Icon>
 
@@ -92,15 +86,22 @@ const Header = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              width: "200px",
               height: "100%",
               padding: "10px",
             }}
           >
-            <LoginButton variant="contained" onClick={handleClickOpen}>
-              Log In
-            </LoginButton>
-            <SignButton variant="contained">Sign Up</SignButton>
+            <IconButton onClick={handleClickOpen}>
+              <ShoppingCartIcon
+                sx={{
+                  color: "#333333",
+                  transition: "2s",
+                  "&:hover": {
+                    transform: "scale(1.15)",
+                    color: "#F94848",
+                  },
+                }}
+              />
+            </IconButton>
             <Dialog
               open={open}
               onClose={handleClose}
