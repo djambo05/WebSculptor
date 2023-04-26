@@ -10,7 +10,8 @@ const MainPaper = () => {
           backgroundSize: "cover",
           borderRadius: "0px",
           marginTop: "90px",
-          height: "400px",
+          width: "100%",
+          aspectRatio: "2/1",
           backgroundRepeate: "no-repeat",
           backgroundPosition: "center",
         }}
