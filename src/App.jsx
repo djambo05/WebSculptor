@@ -11,7 +11,7 @@ function App() {
       <Header />
       <MainPaper />
       <AppleCard />
-      <MainFooter />
+      {/* <MainFooter /> */}
     </>
   );
 }
