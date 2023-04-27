@@ -7,6 +7,7 @@ import {
   CardContent,
   CardActions,
 } from "@mui/material";
+import { useState } from "react";
 
 const data = [
   {
@@ -44,6 +45,12 @@ const data = [
 ];
 
 const AppleCard = () => {
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
+  };
+
   return (
     <Grid
       container
@@ -52,10 +59,10 @@ const AppleCard = () => {
         marginBottom: "52px",
       }}
     >
-      {data.map((card) => (
+      {data.map((product) => (
         <Grid
           item
-          key={card}
+          key={product}
           xs={12}
           sm={6}
           md={4}
@@ -73,8 +80,8 @@ const AppleCard = () => {
               sx={{
                 height: "290px",
               }}
-              alt={card.title}
-              image={`./img/products/${card.img}`}
+              alt={product.title}
+              image={`./img/products/${product.img}`}
             />
             <CardContent>
               <Typography
@@ -87,12 +94,12 @@ const AppleCard = () => {
                 }}
                 gutterBottom
               >
-                {card.title}
+                {product.title}
               </Typography>
               <Typography
                 sx={{ fontFamily: "Castoro Titling", fontWeight: "bold" }}
               >
-                {card.price} руб.
+                {product.price} руб.
               </Typography>
             </CardContent>
             <CardActions
@@ -124,6 +131,7 @@ const AppleCard = () => {
                   fontWeight: "bold",
                   border: "1px solid #333333",
                 }}
+                onClick={() => addToCart(product)}
               >
                 Add to cart
               </Button>
