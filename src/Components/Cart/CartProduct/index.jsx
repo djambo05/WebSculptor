@@ -3,10 +3,10 @@ import "./style.css";
 import priceFormatter from "../../../Utils/priceFromatter";
 const CartProduct = ({
   product,
-  deleteProduct,
-  increase,
-  decrease,
-  changeValue,
+  // deleteProduct,
+  // increase,
+  // decrease,
+  // changeValue,
 }) => {
   return (
     <section className="product">
@@ -17,21 +17,21 @@ const CartProduct = ({
       <div className="product__count">
         <CartCount
           count={product.count}
-          increase={increase}
+          // increase={increase}
           id={product.id}
-          decrease={decrease}
-          changeValue={changeValue}
+          // decrease={decrease}
+          // changeValue={changeValue}
         />
       </div>
       <div className="product__price">
-        {priceFormatter.format(product.priceTotal)} руб.
+        {/* {priceFormatter.format(product.priceTotal)} руб. */}
       </div>
       <div className="product__controls">
         <button
           type="button"
-          onClick={() => {
-            deleteProduct(product.id);
-          }}
+          // onClick={() => {
+          //   deleteProduct(product.id);
+          // }}
         >
           <img src="./img/icons/cross.svg" alt="Delete" />
         </button>

@@ -12,7 +12,7 @@ import { useState } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Cart from "./Cart";
 
-const Header = () => {
+const Header = ({ purchases }) => {
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -90,7 +90,7 @@ const Header = () => {
               onClose={handleClose}
               aria-label="form-dialog-title"
             >
-              <Cart />
+              <Cart purchases={purchases} />
             </Dialog>
           </Box>
         </Toolbar>
