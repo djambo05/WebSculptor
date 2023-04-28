@@ -6,14 +6,14 @@ import CartProduct from "../CartProduct";
 const Cartmini = ({ purchases }) => {
   const [cart, setCart] = useState(purchases);
 
-  // const [total, setTotal] = useState({
-  //   price: cart.reduce((prev, curr) => {
-  //     return prev + curr.price;
-  //   }, 0),
-  //   count: cart.reduce((prev, curr) => {
-  //     return prev + curr.count;
-  //   }, 0),
-  // });
+  const [total, setTotal] = useState({
+    price: cart.reduce((prev, curr) => {
+      return prev + curr.price;
+    }, 0),
+    count: cart.reduce((prev, curr) => {
+      return prev + curr.count;
+    }, 0),
+  });
 
   // useEffect(() => {
   //   setTotal({
