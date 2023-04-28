@@ -5,6 +5,7 @@ import CartProduct from "../CartProduct";
 
 const Cartmini = ({ purchases }) => {
   const [cart, setCart] = useState(purchases);
+
   // const [total, setTotal] = useState({
   //   price: cart.reduce((prev, curr) => {
   //     return prev + curr.price;
