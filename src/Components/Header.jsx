@@ -4,49 +4,15 @@ import {
   Toolbar,
   Typography,
   Box,
-  Button,
   Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  TextField,
-  DialogActions,
+  Icon,
+  IconButton,
 } from "@mui/material";
-import SvgIcon from "@mui/material/SvgIcon";
-import { styled } from "@mui/material/styles";
 import { useState } from "react";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Cart from "./Cart";
 
-const LoginButton = styled(Button)({
-  backgroundColor: "#333333",
-  borderRadius: "10px",
-  transition: "background-color 1s ease",
-  "@keyframes move": {
-    "0%": {
-      transform: "translateY(0px)",
-    },
-    "50%": {
-      transform: "translateY(-10px)",
-    },
-    "100%": {
-      transform: "translateY(0px)",
-    },
-  },
-  "&:hover": {
-    backgroundColor: "#1992BA",
-    animation: "move 0.5s linear",
-  },
-});
-const SignButton = styled(Button)({
-  backgroundColor: "#333333",
-  borderRadius: "10px",
-  transition: "2s",
-  "&:hover": {
-    transform: "scale(1.1)",
-    backgroundColor: "#1992BA",
-  },
-});
-
-const Header = () => {
+const Header = ({ purchases }) => {
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -58,7 +24,7 @@ const Header = () => {
     <>
       <AppBar
         sx={{
-          backgroundColor: "#FF851B",
+          backgroundColor: "#EAEFF2",
           height: "90px",
           display: "flex",
           alignItems: "center",
@@ -74,29 +40,28 @@ const Header = () => {
         >
           <Box
             sx={{
-              display: "flex",
-              justifyContent: "space-between",
+              display: "grid",
+              gridTemplateColumns: "1fr 3fr",
+              justifyItems: "center",
               alignItems: "center",
-              width: "230px",
+              width: "240px",
               height: "100%",
             }}
           >
-            <SvgIcon
-              sx={{
-                color: "#333333",
-              }}
-            >
-              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-            </SvgIcon>
+            <Icon color="white">
+              <img src="img/icons/apple.png" alt="icon" />
+            </Icon>
 
             <Typography
-              variant="h6"
+              variant="h5"
               sx={{
                 color: "#333333",
-                fontWeight: "bold",
+                fontWeight: "cursive",
+                fontFamily: "Castoro Titling",
+                marginTop: "7px",
               }}
             >
-              Web Developer Blog
+              Apple Avenue
             </Typography>
           </Box>
           <Box
@@ -104,48 +69,28 @@ const Header = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              width: "200px",
               height: "100%",
               padding: "10px",
             }}
           >
-            <LoginButton variant="contained" onClick={handleClickOpen}>
-              Log In
-            </LoginButton>
-            <SignButton variant="contained">Sign Up</SignButton>
+            <IconButton onClick={handleClickOpen}>
+              <ShoppingCartIcon
+                sx={{
+                  color: "#333333",
+                  transition: "2s",
+                  "&:hover": {
+                    transform: "scale(1.15)",
+                    color: "#F94848",
+                  },
+                }}
+              />
+            </IconButton>
             <Dialog
               open={open}
               onClose={handleClose}
               aria-label="form-dialog-title"
             >
-              <DialogTitle id="form-dialog-title">Log In</DialogTitle>
-              <DialogContent>
-                <DialogContentText>Log in to see videos</DialogContentText>
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="name"
-                  label="Email Adress"
-                  type="email"
-                  fullWidth
-                />
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="pass"
-                  label="Password"
-                  type="password"
-                  fullWidth
-                />
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleClose} color="primary">
-                  Cancel
-                </Button>
-                <Button onClick={handleClose} color="primary">
-                  Log in
-                </Button>
-              </DialogActions>
+              <Cart purchases={purchases} />
             </Dialog>
           </Box>
         </Toolbar>

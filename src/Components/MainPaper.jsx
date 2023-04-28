@@ -1,65 +1,80 @@
-import { Paper, Container, Grid, Typography, Button } from "@mui/material"
+import { Paper, Container, Grid, Typography, Button } from "@mui/material";
 const MainPaper = () => {
-    return (
+  return (
     <>
-    <Paper
+      <Paper
         sx={{
-          backgroundImage: `url(https://www.bestbinar.ru/wp-content/uploads/2018/12/2-5.jpg)`,
+          backgroundImage: `url(https://obschestvennaya-banya-72.ru/wp-content/uploads/e/3/e/e3e472549578385003df432487c0209d.jpeg)`,
           position: "relative",
           color: "white",
-          marginBottom: "30px",
           backgroundSize: "cover",
+          borderRadius: "0px",
+          marginTop: "90px",
+          width: "100%",
+          aspectRatio: "2/1",
           backgroundRepeate: "no-repeat",
           backgroundPosition: "center",
         }}
       >
         <Container maxWidth="md" fixed>
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              bottom: 0,
-              left: 0,
-              right: 0,
-              // backgroundOverlay: "rgba(0,0,0,0.3)"
+          <Grid
+            container
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              textAlign: "center",
+              justifyContent: "center",
             }}
-          />
-          <Grid container>
-            <Grid item md={9}>
+          >
+            <Grid item>
               <div
                 style={{
                   position: "relative",
-                  padding: "48px",
+                  paddingTop: "50px",
+                  height: "200px",
                 }}
               >
                 <Typography
                   component="h1"
-                  variant="h3"
-                  color="inherit"
+                  variant="h6"
+                  color="#333333"
                   gutterBottom
-                >
-                  Main Typography
-                </Typography>
-                <Typography variant="h5" color="inherit" paragraph>
-                  Paragraph The aroma of freshly brewed coffee filled the cozy
-                  cafe as patrons chatted and sipped their drinks.
-                </Typography>
-                <Button
-                  color="secondary"
-                  variant="contained"
                   sx={{
-                    bgcolor: "red",
-                    borderRadius: "30px",
+                    fontFamily: "Castoro Titling",
                   }}
                 >
-                  Learn more
+                  high status &mdash; high quality
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="#333333"
+                  paragraph
+                  sx={{ fontFamily: "Castoro Titling" }}
+                >
+                  the best for you
+                </Typography>
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#333333",
+                    borderRadius: "10px",
+                    fontFamily: "Castoro Titling",
+                    fontWeight: "bold",
+                    transition: "2s",
+                    "&:hover": {
+                      transform: "scale(1.1)",
+                      backgroundColor: "#F94848",
+                    },
+                  }}
+                >
+                  Show
                 </Button>
               </div>
             </Grid>
           </Grid>
         </Container>
       </Paper>
-      </>
-    )
-}
-export default MainPaper
+    </>
+  );
+};
+export default MainPaper;

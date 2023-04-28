@@ -1,80 +1,66 @@
 import React from "react";
+import { useState } from "react";
 import "./App.css";
-import {
-  Container,
-  Typography,
-  Button,
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-} from "@mui/material";
 import Header from "./Components/Header";
 import MainPaper from "./Components/MainPaper";
-import MainFooter from "./Components/MainFooter";
-import Cart from "./Components/Cart";
+// import MainFooter from "./Components/MainFooter";
+import AppleCard from "./Components/AppleCard";
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const data = [
+  {
+    id: 1,
+    img: "macbook.jpg",
+    title: "Apple Mackbook Air 13",
+    count: 1,
+    price: 110000,
+  },
+  {
+    id: 2,
+    img: "apple-watch.jpg",
+    title: "Apple Watch 2",
+    count: 1,
+    price: 29000,
+  },
+  {
+    id: 3,
+    img: "mac-pro.jpg",
+    title: "Mac Pro",
+    count: 1,
+    price: 300000,
+  },
+  {
+    id: 4,
+    img: "mac-pro.jpg",
+    title: "Mac Pro",
+    count: 1,
+    price: 300000,
+  },
+];
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+  const addToCart = (item) => {
+    setCartItems((cart) => {
+      console.log(cart);
+      return cart.length === 0
+        ? [item]
+        : cart.map((product) => {
+            if (item.id !== product.id) {
+              return [...cartItems, item];
+            }
+            return cartItems;
+          });
+    });
+  };
+
+  const myContext = React.createContext();
+
   return (
     <>
-      <Header />
+      <Header purchases={cartItems} />
       <MainPaper />
-      <Cart />
-      <div>
-        <Container maxWidth="sm">
-          <Container maxWidth="md">
-            <Grid
-              container
-              spacing={4}
-              sx={{
-                marginTop: "32px",
-              }}
-            >
-              {cards.map((card) => (
-                <Grid item key={card} xs={12} sm={4} md={6}>
-                  <Card
-                    sx={{
-                      boxShadow: "1px 4px 4px -2px rgba(0,0,0,0.5)",
-                    }}
-                  >
-                    <CardMedia
-                      sx={{
-                        paddingTop: "56.25%",
-                      }}
-                      image="https://avatars.mds.yandex.net/i?id=4fd5428960144c80fb971bf6aee7bb29-5253174-images-thumbs&ref=rim&n=33&w=281&h=188"
-                    />
-                    <CardContent
-                      sx={{
-                        flexGrow: 1,
-                      }}
-                    >
-                      <Typography variant="h5" gutterBottom>
-                        Blog Post
-                      </Typography>
-                      <Typography>
-                        The aroma of freshly brewed coffee filled the cozy cafe
-                        as patrons
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small" color="primary" variant="outlined">
-                        View
-                      </Button>
-                      <Button size="small" color="warning">
-                        Edit
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-          </Container>
-        </Container>
-      </div>
-      <MainFooter />
+      <AppleCard products={data} addToCart={addToCart} />
+      {/* <MainFooter /> */}
     </>
   );
 }
