@@ -19,6 +19,7 @@ function App() {
     const firstTouch = event.touches[0];
     x1 = firstTouch.clientX;
     y1 = firstTouch.clientY;
+    console.log(x1);
   }
 
   function handleTouchMove(event) {
