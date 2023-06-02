@@ -35,7 +35,7 @@ const Carousel = ({ products }) => {
         gap: "30px",
         backgroundColor: "grey",
         width: "700px",
-        height: "400px",
+        height: "300px",
         flexWrap: "nowrap",
         overflowX: "hidden",
       }}
